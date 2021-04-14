@@ -8,11 +8,10 @@ import {
   PickerComponent,
   WeatherCard,
   AppLoader,
+  LineChartComponent,
 } from '../Components';
 import StaticData from '../StaticData';
 import axios from 'axios';
-import helper from '../helper';
-import {LineChart} from 'react-native-chart-kit';
 import {APP_ROUTES} from '../Navigation';
 export class Home extends Component {
   constructor(props) {
@@ -83,41 +82,7 @@ export class Home extends Component {
         </View>
 
         {graphData.length > 0 && xAxisData.length > 0 && (
-          <LineChart
-            data={{
-              labels: xAxisData,
-              datasets: [
-                {
-                  data: graphData,
-                },
-              ],
-            }}
-            width={Metrics.screenWidth - 30} // from react-native
-            height={200}
-            yAxisLabel="°C`"
-            yAxisInterval={1} // optional, defaults to 1
-            chartConfig={{
-              backgroundColor: '#1462be',
-              backgroundGradientFrom: '#1462be',
-              backgroundGradientTo: '#146',
-              decimalPlaces: 2, // optional, defaults to 2dp
-              color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-              labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-              style: {
-                borderRadius: 16,
-              },
-              propsForDots: {
-                r: '6',
-                strokeWidth: '2',
-                stroke: '#146',
-              },
-            }}
-            bezier
-            style={{
-              marginVertical: 8,
-              borderRadius: 16,
-            }}
-          />
+          <LineChartComponent xAxisData={xAxisData} yAxisData={graphData} />
         )}
 
         <View style={styles.buttonPosition}>
