@@ -5,7 +5,7 @@ import {Text} from 'react-native';
 const AppText = props => {
   return (
     <Text {...props} maxFontSizeMultiplier={1.1} style={[props.style]}>
-      {props.children}
+      {props.children ? props.children : '-'}
     </Text>
   );
 };

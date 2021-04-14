@@ -1,12 +1,13 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {Colors} from '../../GlobalAppStyles';
 
 const AppPrimaryButton = ({label, onPress, containerStyle}) => {
   return (
     <TouchableOpacity
       style={[styles.mainButton, containerStyle]}
       onPress={onPress}>
-      <Text>{label}</Text>
+      <Text style={styles.text}>{label}</Text>
     </TouchableOpacity>
   );
 };
@@ -14,5 +15,16 @@ const AppPrimaryButton = ({label, onPress, containerStyle}) => {
 export default AppPrimaryButton;
 
 const styles = StyleSheet.create({
-  mainButton: {},
+  mainButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    minHeight: 55,
+    borderRadius: 4,
+    backgroundColor: '#0f73ee',
+    padding: 15,
+  },
+  text: {
+    fontSize: 18,
+    color: Colors.white,
+  },
 });

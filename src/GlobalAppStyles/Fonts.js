@@ -1,6 +1,6 @@
 const size = {
   h1: 24,
-  h2: 22,
+  h2: 20,
   large: 18,
   medium: 16,
   small: 14,

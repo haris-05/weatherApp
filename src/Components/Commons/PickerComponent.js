@@ -28,8 +28,6 @@ class PickerComponent extends React.Component {
       placeholder,
       selectedItem,
       name,
-      customStyle,
-      customIconStyle,
       clearOnChange,
       enabled = true,
     } = this.props;
@@ -46,7 +44,7 @@ class PickerComponent extends React.Component {
           key={0}
           value={placeholderLabel}
           label={placeholderLabel}
-          //   color={AppStyles.colors.subTextColor}
+          color={Colors.secondaryText}
           style={styles.paddingPicker}
         />,
       );
@@ -74,7 +72,7 @@ class PickerComponent extends React.Component {
           textStyle={[styles.formFontSettings]}
           mode="dropdown"
           enabled={enabled}
-          style={[styles.formControlForPicker]}
+          style={styles.formControlForPicker}
           placeholder={placeholderLabel}
           selectedValue={selectedValue}
           onValueChange={(itemValue, itemIndex) =>
@@ -111,6 +109,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderWidth: 0,
     height: 50,
+    width: '85%',
   },
 });
 
