@@ -1,4 +1,4 @@
 export default {
-  HOME_SCREEN: 'HomeScreen',
-  DETAIL_SCREEN: 'DetailScreen',
+  HOME_SCREEN: 'Home',
+  MAP_SCREEN: 'Map',
 };
