@@ -2,7 +2,7 @@
 const IMAGES_DIR = '../../assets';
 const images = {
   // icons
-  //resetIcon: require(`${IMAGES_DIR}/reset.png`),
+  downArrow: require(`${IMAGES_DIR}/arrow_down.png`),
 };
 
 export default images;

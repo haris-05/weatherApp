@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {Fragment} from 'react';
-import {StatusBar, SafeAreaView} from 'react-native';
+import {StatusBar, SafeAreaView, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {AppNavigator} from './Navigation';
 import NetInfo from '@react-native-community/netinfo';
@@ -9,8 +9,7 @@ const AppContainer = props => {
   return (
     <Fragment>
       <NavigationContainer>
-        <StatusBar barStyle={'default'} />
-        <SafeAreaView style={{flex: 1}}>
+        <SafeAreaView style={styles.safeArea}>
           <AppNavigator />
         </SafeAreaView>
       </NavigationContainer>
@@ -35,3 +34,9 @@ const App = () => {
 };
 
 export default App;
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  },
+});
