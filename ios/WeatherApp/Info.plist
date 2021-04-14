@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>MGLMapboxAccessToken</key>
+	<string>pk.eyJ1IjoiaGFyaXMwNSIsImEiOiJja25oZHJqNGEwbDF4MnVxaHk0NWZ1b215In0.wd6FdFsQE5o4l-xLxI5trg</string>
 	<key>CFBundleDisplayName</key>
 	<string>WeatherApp</string>
 	<key>CFBundleExecutable</key>
@@ -35,6 +37,11 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSLocationTemporaryUsageDescriptionDictionary</key>
+  <dict>
+    <key>MGLAccuracyAuthorizationDescription</key>
+    <string>Please enable precise location to get current weather data</string>
+</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UILaunchStoryboardName</key>

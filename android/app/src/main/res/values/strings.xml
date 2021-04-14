@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WeatherApp</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoiaGFyaXMwNSIsImEiOiJja25oZHJqNGEwbDF4MnVxaHk0NWZ1b215In0.wd6FdFsQE5o4l-xLxI5trg</string>
 </resources>
