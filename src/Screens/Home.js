@@ -36,8 +36,8 @@ export class Home extends Component {
       const {list} = response.data;
       const dates = ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
       const tempratures = [];
-      for (let i = 0; i < 5; i++) {
-        tempratures[i] = list[i].main.temp;
+      for (let i = 0; i < 7; i++) {
+        tempratures[i] = list[i].main.temp; // only taking data for 7
       }
       this.setState({
         weatherData: response.data,
