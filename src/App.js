@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {Fragment} from 'react';
-import {StatusBar, SafeAreaView, StyleSheet} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {AppNavigator} from './Navigation';
 import NetInfo from '@react-native-community/netinfo';

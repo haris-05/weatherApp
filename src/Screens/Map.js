@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import MapboxGL from '@react-native-mapbox-gl/maps';
-import {Alert, Linking, Platform, StyleSheet, Text, View} from 'react-native';
+import {Alert, Linking, Platform, StyleSheet, View} from 'react-native';
 import {Metrics} from '../GlobalAppStyles';
 import {request, PERMISSIONS} from 'react-native-permissions';
-import Geolocation from '@react-native-community/geolocation';
 import {AppPrimaryButton} from '../Components';
 
 MapboxGL.setAccessToken(
@@ -27,8 +26,8 @@ export class Map extends Component {
     const {route} = this.props;
     const {latitude, longitude} = route.params;
     const copyRegion = [...this.state.region];
-    copyRegion[0] = latitude;
-    copyRegion[1] = longitude;
+    copyRegion[0] = longitude;
+    copyRegion[1] = latitude;
     this.setState({region: copyRegion});
   };
 
@@ -66,13 +65,12 @@ export class Map extends Component {
         </View>
         <View style={styles.container}>
           <MapboxGL.MapView
-            zoomLevel={16}
             logoEnabled={false}
             ref={c => (this._map = c)}
             style={styles.container}>
             <MapboxGL.Camera
               ref={c => (this._camera = c)}
-              zoomLevel={16}
+              zoomLevel={12}
               animationMode={'flyTo'}
               animationDuration={2000}
               centerCoordinate={region}

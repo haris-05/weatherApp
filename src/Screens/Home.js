@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, FlatList} from 'react-native';
+import {StyleSheet, View, FlatList} from 'react-native';
+import axios from 'axios';
 import {Colors, Fonts, Metrics} from '../GlobalAppStyles';
 import {
   AppPrimaryButton,
-  AppHeaderTitle,
   AppText,
   PickerComponent,
   WeatherCard,
@@ -11,7 +11,6 @@ import {
   LineChartComponent,
 } from '../Components';
 import StaticData from '../StaticData';
-import axios from 'axios';
 import {APP_ROUTES} from '../Navigation';
 export class Home extends Component {
   constructor(props) {
