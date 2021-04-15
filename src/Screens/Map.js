@@ -35,22 +35,18 @@ export class Map extends Component {
     if (Platform.OS === 'ios') {
       var response = await request(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE);
       if (response === 'granted') {
-        this.setInitialRegion();
+        this.setState({showUserLocation: true});
       } else {
         Linking.openURL('app-settings:');
       }
     } else {
       var response = await request(PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION);
       if (response === 'granted') {
-        this.setInitialRegion();
+        this.setState({showUserLocation: true});
       } else {
         Alert.alert('Location permission denied');
       }
     }
-  };
-
-  getUserLocation = async () => {
-    this.setState({showUserLocation: true});
   };
 
   render() {
@@ -60,7 +56,7 @@ export class Map extends Component {
         <View style={styles.buttonPosition}>
           <AppPrimaryButton
             label={'Locate User'}
-            onPress={() => this.getUserLocation()}
+            onPress={() => this.requestLocationPermission()}
           />
         </View>
         <View style={styles.container}>
