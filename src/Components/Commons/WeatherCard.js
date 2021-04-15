@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, Platform} from 'react-native';
 import {Images, Metrics, Colors, Fonts} from '../../GlobalAppStyles';
 import AppText from './AppText';
 import helper from '../../helper';
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5, // IOS}}
   },
   imageStyle: {
-    height: 80,
+    height: Platform.OS === 'ios' ? 100 : 80,
     width: '100%',
     marginBottom: Metrics.marginBottom,
   },

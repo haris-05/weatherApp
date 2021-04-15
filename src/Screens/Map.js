@@ -92,6 +92,7 @@ export class Map extends Component {
             style={styles.container}>
             <MapboxGL.Camera
               ref={c => (this._camera = c)}
+              zoomLevel={16}
               animationMode={'flyTo'}
               animationDuration={2000}
               centerCoordinate={region}
