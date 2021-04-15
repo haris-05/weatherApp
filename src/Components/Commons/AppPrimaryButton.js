@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {Colors} from '../../GlobalAppStyles';
+import PropTypes from 'prop-types';
 
 const AppPrimaryButton = ({label, onPress, containerStyle}) => {
   return (
@@ -13,6 +14,12 @@ const AppPrimaryButton = ({label, onPress, containerStyle}) => {
 };
 
 export default AppPrimaryButton;
+
+AppPrimaryButton.propTypes = {
+  label: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired,
+  containerStyle: PropTypes.object,
+};
 
 const styles = StyleSheet.create({
   mainButton: {

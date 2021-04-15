@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import {LineChart} from 'react-native-chart-kit';
 import {Metrics} from '../../GlobalAppStyles';
+import PropTypes from 'prop-types';
 
 const LineChartComponent = ({xAxisData, yAxisData}) => {
   return (
@@ -38,6 +39,11 @@ const LineChartComponent = ({xAxisData, yAxisData}) => {
       style={styles.lineGraph}
     />
   );
+};
+
+LineChartComponent.propTypes = {
+  xAxisData: PropTypes.array.isRequired,
+  yAxisData: PropTypes.array.isRequired,
 };
 
 export default LineChartComponent;

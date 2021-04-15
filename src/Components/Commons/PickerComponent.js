@@ -4,6 +4,7 @@ import React from 'react';
 import {Platform, View, StyleSheet} from 'react-native';
 import {Picker, Icon} from 'native-base';
 import {Colors, Metrics} from '../../GlobalAppStyles';
+import PropTypes from 'prop-types';
 
 class PickerComponent extends React.Component {
   constructor(props) {
@@ -23,22 +24,13 @@ class PickerComponent extends React.Component {
   };
 
   render() {
-    const {
-      data,
-      placeholder,
-      selectedItem,
-      name,
-      clearOnChange,
-      enabled = true,
-    } = this.props;
+    const {data, placeholder, selectedItem, name} = this.props;
     const items = data || [];
     let pickerItems = [];
-    let clearOnChangeProp = clearOnChange || false;
     const placeholderLabel = placeholder || 'Select';
     let selectedValue = selectedItem || this.state.selectedTask;
-    if (clearOnChangeProp) selectedValue = selectedItem;
 
-    if (Platform.OS == 'android') {
+    if (Platform.OS === 'android') {
       pickerItems.push(
         <Picker.Item
           key={0}
@@ -71,7 +63,6 @@ class PickerComponent extends React.Component {
           headerTitleStyle={{color: Colors.white}}
           textStyle={[styles.formFontSettings]}
           mode="dropdown"
-          enabled={enabled}
           style={styles.formControlForPicker}
           placeholder={placeholderLabel}
           selectedValue={selectedValue}
@@ -84,6 +75,13 @@ class PickerComponent extends React.Component {
     );
   }
 }
+
+PickerComponent.propTypes = {
+  data: PropTypes.array.isRequired,
+  selectedItem: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  name: PropTypes.string,
+};
 
 const styles = StyleSheet.create({
   pickerMain: {
