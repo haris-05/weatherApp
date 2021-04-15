@@ -90,8 +90,11 @@ export class Map extends Component {
               animationMode={'flyTo'}
               animationDuration={0}
               centerCoordinate={region}
+              followUserLocation={this.state.showUserLocation ? true : false}
             />
-            {this.state.showUserLocation && <MapboxGL.UserLocation />}
+            {this.state.showUserLocation && (
+              <MapboxGL.UserLocation showsUserHeadingIndicator={true} />
+            )}
           </MapboxGL.MapView>
         </View>
       </View>
