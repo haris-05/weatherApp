@@ -18,13 +18,13 @@ const styles = StyleSheet.create({
   mainButton: {
     justifyContent: 'center',
     alignItems: 'center',
-    minHeight: 55,
+    minHeight: 40,
     borderRadius: 4,
     backgroundColor: '#0f73ee',
-    padding: 15,
+    padding: 10,
   },
   text: {
-    fontSize: 18,
+    fontSize: 12,
     color: Colors.white,
   },
 });

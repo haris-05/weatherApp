@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderWidth: 0.5,
     borderColor: Colors.primary,
-    marginVertical: Metrics.doubleBaseMargin,
+    marginVertical: Metrics.baseMargin,
   },
   arrowIcon: {
     position: 'absolute',

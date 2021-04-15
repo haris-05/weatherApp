@@ -88,7 +88,12 @@ export class Home extends Component {
         <View style={styles.buttonPosition}>
           <AppPrimaryButton
             label={'Go to Maps'}
-            onPress={() => navigation.navigate(APP_ROUTES.MAP_SCREEN)}
+            onPress={() =>
+              navigation.navigate(APP_ROUTES.MAP_SCREEN, {
+                latitude: weatherData.city.coord.lat,
+                longitude: weatherData.city.coord.lon,
+              })
+            }
           />
         </View>
       </View>
@@ -102,13 +107,11 @@ const styles = StyleSheet.create({
   main: {
     flex: 1,
     backgroundColor: Colors.white,
-    padding: Metrics.doubleBaseMargin - 5,
+    padding: Metrics.baseMargin,
   },
   headerTitleContainer: {
     alignSelf: 'center',
-    // borderWidth: 0.5,
-    // borderColor: Colors.primary,
-    padding: 10,
+    paddingHorizontal: 10,
     borderRadius: 4,
     width: '90%',
     alignItems: 'center',
@@ -118,7 +121,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   weatherListContainer: {
-    marginVertical: Metrics.doubleBaseMargin - 5,
+    marginVertical: 5,
   },
   buttonPosition: {
     position: 'absolute',

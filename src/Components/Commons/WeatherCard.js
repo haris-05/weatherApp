@@ -31,7 +31,7 @@ export default WeatherCard;
 
 const styles = StyleSheet.create({
   itemViewStyle: {
-    width: Metrics.screenWidth / 2.5,
+    width: Metrics.screenWidth / 2,
     marginVertical: Metrics.baseMargin - 5,
     marginHorizontal: Metrics.baseMargin - 5,
     paddingTop: Metrics.padding * 1.5,
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5, // IOS}}
   },
   imageStyle: {
-    height: 150,
+    height: 100,
     width: '100%',
     marginBottom: Metrics.marginBottom,
   },

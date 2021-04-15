@@ -13,15 +13,25 @@ export class Map extends Component {
     super(props);
     this.state = {
       region: {
-        latitude: 33.5651,
-        longitude: 73.0169,
+        latitude: 0,
+        longitude: 0,
       },
     };
   }
 
   componentDidMount() {
-    this.requestLocationPermission();
+    //this.requestLocationPermission();
+    this.setInitialRegion();
   }
+
+  setInitialRegion = () => {
+    const {route} = this.props;
+    const {latitude, longitude} = route.params;
+    const copyRegion = {...this.state.region};
+    copyRegion.latitude = latitude;
+    copyRegion.longitude = longitude;
+    this.setState({region: copyRegion});
+  };
 
   locateCurrentPosition = () => {
     const {region} = this.state;
@@ -31,8 +41,8 @@ export class Map extends Component {
         newRegion.latitude = position.coords.latitude;
         newRegion.longitude = position.coords.longitude;
         this.setState({region: newRegion});
-        console.log('region=>', region);
-        console.log(this._map);
+        // console.log('region=>', region);
+        // console.log(this._map);
         //   [position.coords.latitude, position.coords.longitude],
         //   200,
         // );
@@ -71,13 +81,18 @@ export class Map extends Component {
     return (
       <View style={styles.page}>
         <View style={styles.container}>
-          <MapboxGL.MapView ref={c => (this._map = c)} style={styles.map}>
+          <MapboxGL.MapView
+            centerCoordinate={[region.latitude, region.longitude]}
+            ref={c => (this._map = c)}
+            style={styles.map}>
             <MapboxGL.Camera
-              zoomLevel={12}
+              ref={c => (this._camera = c)}
+              zoomLevel={16}
               animationMode={'flyTo'}
-              animationDuration={6000}
+              animationDuration={0}
               centerCoordinate={[region.latitude, region.longitude]}
             />
+            <MapboxGL.UserLocation />
           </MapboxGL.MapView>
         </View>
       </View>

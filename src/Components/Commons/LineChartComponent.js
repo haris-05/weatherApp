@@ -15,7 +15,7 @@ const LineChartComponent = ({xAxisData, yAxisData}) => {
         ],
       }}
       width={Metrics.screenWidth - 30} // from react-native
-      height={200}
+      height={Metrics.screenWidth / 2}
       yAxisLabel="°C`"
       yAxisInterval={1} // optional, defaults to 1
       chartConfig={{
@@ -44,7 +44,8 @@ export default LineChartComponent;
 
 const styles = StyleSheet.create({
   lineGraph: {
-    marginVertical: 8,
+    marginVertical: 10,
+    marginHorizontal: 10,
     borderRadius: 16,
   },
 });
