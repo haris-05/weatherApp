@@ -40,7 +40,8 @@ export class Map extends Component {
         Linking.openURL('app-settings:');
       }
     } else {
-      var response = await request(PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION);
+
+      var response = await MapboxGL.requestAndroidLocationPermissions();
       if (response === 'granted') {
         this.setState({showUserLocation: true});
       } else {
