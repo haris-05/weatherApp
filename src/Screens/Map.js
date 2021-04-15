@@ -40,9 +40,8 @@ export class Map extends Component {
         Linking.openURL('app-settings:');
       }
     } else {
-
-      var response = await MapboxGL.requestAndroidLocationPermissions();
-      if (response === 'granted') {
+      var androidPermission = await MapboxGL.requestAndroidLocationPermissions();
+      if (androidPermission) {
         this.setState({showUserLocation: true});
       } else {
         Alert.alert('Location permission denied');
