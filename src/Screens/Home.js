@@ -21,6 +21,7 @@ export class Home extends Component {
       weatherData: [],
       graphData: [],
       xAxisData: [],
+      loading: true,
     };
   }
 
@@ -43,6 +44,7 @@ export class Home extends Component {
         weatherData: response.data,
         graphData: tempratures,
         xAxisData: dates,
+        loading: false,
       });
     } catch (error) {
       console.log(error);
@@ -56,7 +58,7 @@ export class Home extends Component {
   };
 
   render() {
-    const {weatherData, city, graphData, xAxisData} = this.state;
+    const {weatherData, city, graphData, xAxisData, loading} = this.state;
     const {navigation} = this.props;
     return (
       <View style={styles.main}>
@@ -70,19 +72,29 @@ export class Home extends Component {
           selectedItem={city}
           onValueChange={value => this.onCityChange(value)}
         />
-        <View style={styles.weatherListContainer}>
-          <FlatList
-            data={weatherData.list}
-            contentContainerStyle={{paddingHorizontal: Metrics.baseMargin - 2}}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            renderItem={({item, index}) => <WeatherCard weatherItem={item} />}
-            keyExtractor={(item, index) => index.toString()}
-          />
-        </View>
+        {loading ? (
+          <AppLoader loading={loading} />
+        ) : (
+          <>
+            <View style={styles.weatherListContainer}>
+              <FlatList
+                data={weatherData.list}
+                contentContainerStyle={{
+                  paddingHorizontal: Metrics.baseMargin - 2,
+                }}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                renderItem={({item, index}) => (
+                  <WeatherCard weatherItem={item} />
+                )}
+                keyExtractor={(item, index) => index.toString()}
+              />
+            </View>
 
-        {graphData.length > 0 && xAxisData.length > 0 && (
-          <LineChartComponent xAxisData={xAxisData} yAxisData={graphData} />
+            {graphData.length > 0 && xAxisData.length > 0 && (
+              <LineChartComponent xAxisData={xAxisData} yAxisData={graphData} />
+            )}
+          </>
         )}
 
         <View style={styles.buttonPosition}>
