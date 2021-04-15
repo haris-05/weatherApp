@@ -12,10 +12,18 @@ target 'WeatherApp' do
     :hermes_enabled => false
   )
 
+  pre_install do |installer|
+    $RNMBGL.pre_install(installer)
+  end
+
   target 'WeatherAppTests' do
     inherit! :complete
     # Pods for testing
   end
+
+  permissions_path = '../node_modules/react-native-permissions/ios'
+
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
 
   # Enables Flipper.
   #
@@ -24,6 +32,8 @@ target 'WeatherApp' do
   use_flipper!()
 
   post_install do |installer|
+    $RNMBGL.post_install(installer)
     react_native_post_install(installer)
   end
+
 end
