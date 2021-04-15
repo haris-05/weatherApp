@@ -4,15 +4,21 @@ import {StatusBar, SafeAreaView, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {AppNavigator} from './Navigation';
 import NetInfo from '@react-native-community/netinfo';
+import {NoInternet} from './Components';
 
 const AppContainer = props => {
+  const {isInternetConnected} = props;
   return (
     <Fragment>
-      <NavigationContainer>
-        <SafeAreaView style={styles.safeArea}>
-          <AppNavigator />
-        </SafeAreaView>
-      </NavigationContainer>
+      {isInternetConnected ? (
+        <NavigationContainer>
+          <SafeAreaView style={styles.safeArea}>
+            <AppNavigator />
+          </SafeAreaView>
+        </NavigationContainer>
+      ) : (
+        <NoInternet isConnected={isInternetConnected} />
+      )}
     </Fragment>
   );
 };
@@ -30,7 +36,7 @@ const App = () => {
     NetInfo.addEventListener(change => handleConnectivityChange());
   }, [isInternetConnected]);
 
-  return <AppContainer />;
+  return <AppContainer isInternetConnected={isInternetConnected} />;
 };
 
 export default App;

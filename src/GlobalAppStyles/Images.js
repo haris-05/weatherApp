@@ -6,6 +6,8 @@ const images = {
   // general
   noImage: require(`${IMAGES_DIR}/no_image.png`),
 
+  noInternet: require(`${IMAGES_DIR}/no-internet-connection.png`),
+
   weatherPlaceholder: require(`${IMAGES_DIR}/weather_placeholder.jpeg`),
 };
 
