@@ -15,6 +15,7 @@ export class Map extends Component {
     this.state = {
       region: [0, 0],
       showUserLocation: false,
+      markerViewId: 0,
     };
   }
 
@@ -74,7 +75,7 @@ export class Map extends Component {
   };
 
   render() {
-    const {region} = this.state;
+    const {region, markerViewId} = this.state;
     return (
       <View style={styles.page}>
         <View style={styles.buttonPosition}>
@@ -84,13 +85,22 @@ export class Map extends Component {
           />
         </View>
         <View style={styles.container}>
-          <MapboxGL.MapView ref={c => (this._map = c)} style={styles.container}>
+          <MapboxGL.MapView
+            zoomLevel={16}
+            logoEnabled={false}
+            ref={c => (this._map = c)}
+            style={styles.container}>
             <MapboxGL.Camera
               ref={c => (this._camera = c)}
               animationMode={'flyTo'}
-              animationDuration={0}
+              animationDuration={2000}
               centerCoordinate={region}
               followUserLocation={this.state.showUserLocation ? true : false}
+            />
+            <MapboxGL.PointAnnotation
+              id={markerViewId.toString()}
+              title={'Current Location'}
+              coordinate={region}
             />
             {this.state.showUserLocation && (
               <MapboxGL.UserLocation showsUserHeadingIndicator={true} />
