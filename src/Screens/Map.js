@@ -32,22 +32,6 @@ export class Map extends Component {
     this.setState({region: copyRegion});
   };
 
-  locateCurrentPosition = () => {
-    const {region} = this.state;
-    Geolocation.getCurrentPosition(
-      position => {
-        const newRegion = [...this.state.region];
-        newRegion[0] = position.coords.latitude;
-        newRegion[1] = position.coords.longitude;
-        this.setState({region: newRegion}, () => {
-          this._camera.flyTo(region);
-        });
-      },
-      error => Alert.alert(error.message),
-      {enableHighAccuracy: true, timeout: 10000, maximumAge: 1000},
-    );
-  };
-
   requestLocationPermission = async () => {
     if (Platform.OS === 'ios') {
       var response = await request(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE);
@@ -64,10 +48,6 @@ export class Map extends Component {
         Alert.alert('Location permission denied');
       }
     }
-  };
-
-  onRegionChange = regionValue => {
-    this.setState({region: regionValue});
   };
 
   getUserLocation = async () => {
