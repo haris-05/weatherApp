@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5, // IOS}}
   },
   imageStyle: {
-    height: 100,
+    height: 80,
     width: '100%',
     marginBottom: Metrics.marginBottom,
   },

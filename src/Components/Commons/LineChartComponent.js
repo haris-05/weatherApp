@@ -15,7 +15,7 @@ const LineChartComponent = ({xAxisData, yAxisData}) => {
         ],
       }}
       width={Metrics.screenWidth - 30} // from react-native
-      height={Metrics.screenWidth / 2}
+      height={Metrics.screenHeight / 3}
       yAxisLabel="°C`"
       yAxisInterval={1} // optional, defaults to 1
       chartConfig={{
