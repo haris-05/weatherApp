@@ -8,6 +8,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import {Images, Colors} from '../../GlobalAppStyles';
+import PropTypes from 'prop-types';
 
 const NoInternet = props => {
   return (
@@ -34,6 +35,10 @@ const NoInternet = props => {
       </TouchableWithoutFeedback>
     </View>
   );
+};
+
+NoInternet.propTypes = {
+  isConnected: PropTypes.bool.isRequired,
 };
 
 const styles = StyleSheet.create({
